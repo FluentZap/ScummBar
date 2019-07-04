@@ -1,21 +1,30 @@
 import React from 'react';
 import { makeStyles, styled } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+
 import KegCard from '../kegcard/KegCard';
 import Keg, { colorCode } from '../../Keg';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '80%',
-    height: '360px',
+    height: '412px',
     backgroundColor: '#d7ccc887',
     margin: '30px auto',
     boxShadow: '4px 4px 10px black',
     display: 'flex',
+  },
+  cardContainer: {
+    margin: 'auto'
   }
 }));
+
+const SellButton = styled(Button)({
+  width: '100%',
+  fontFamily: `'Risque', cursive`,
+  fontSize: '18px'
+});
 
 export default function TapCategory(props) {
   const classes = useStyles();
@@ -55,10 +64,15 @@ export default function TapCategory(props) {
   ]
 
   return (
-    <div className={classes.root}>
-      {kegs.map((element, index) => {
-        return (<KegCard keg={element} key={index} />)
-      })}
-    </div>
+      <div className={classes.root}>
+        {kegs.map((element, index) => {
+          return (            
+            <div key={index + 'container'} className={classes.cardContainer}>
+              <KegCard keg={element} key={index + 'card'} />
+              <SellButton variant="contained" size="large" color="primary" key={index + 'button'}>Sell 16 oz</SellButton>
+              </div>
+          )
+        })}
+      </div>    
   );
 }
