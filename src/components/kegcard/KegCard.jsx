@@ -4,6 +4,8 @@ import BannerScroll from '../../assets/bannerSmall.png'
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import BannerTitle from './BannerTitle';
+import KegDisplay from './KegDisplay';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     '& img': {
       width: '214px',
       margin: '5px 3px',
-    },    
+    },
   },
   beerName: {
     flexGrow: 1,
@@ -43,10 +45,10 @@ export default function KegCard(props) {
   return (
     <div className={classes.root}>
       <div className={classes.card}>
-        <img src={BannerScroll} alt=""/>
-        <h5 className={classes.beerName}>
-          Beer Name
-        </h5>
+        <BannerTitle
+          name='Beer Name'
+        />
+        <KegDisplay/>
       </div>
     </div>
   );
