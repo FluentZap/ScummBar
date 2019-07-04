@@ -6,6 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import woodBackground from './assets/woodBackground.jpg'
 
 
+// font-family: 'Quintessential', cursive;
+// font-family: 'Risque', cursive;
+
 const useStyles = makeStyles(theme => ({
   App: {
     backgroundImage: `url('${woodBackground}')`,
