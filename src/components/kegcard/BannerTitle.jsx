@@ -4,6 +4,8 @@ import BannerScroll from '../../assets/bannerSmall.png'
 
 const useStyles = makeStyles(theme => ({
   root: {
+    gridRow: '1 / 2',
+    gridColumn: '1 / 3',
     '& img': {
       width: '214px',
       margin: '5px 3px',

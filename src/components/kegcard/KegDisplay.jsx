@@ -9,17 +9,16 @@ export default function KegDisplay(props) {
   const color = props.color;
   
   const useStyles = makeStyles(theme => ({
-    root: {
-      width: '100px',
-      height: '146px',
-      float: 'left',
-      // backgroundImage: `url('${Keg}')`,
+    root: {      
+      gridColumn: '1 / 2',
+      gridRow: '3 / span 7',
       maskImage: `url('${KegMask}')`,
-      background: `url('${Keg}'), linear-gradient(180deg, #00000000, #00000000 ${percentage - 2}%, rgba(${color.r},${color.g},${color.b},${color.a}) ${percentage}%, rgba(${color.r / 5},${color.g / 5},${color.b / 5},${color.a}) 100%)`,
       maskSize: 'contain',
+      maskRepeat: 'no-repeat',
+      background: `url('${Keg}'), linear-gradient(180deg, #00000000, #00000000 ${percentage - 2}%, rgba(${color.r},${color.g},${color.b},${color.a}) ${percentage}%, rgba(${color.r / 5},${color.g / 5},${color.b / 5},${color.a}) 100%)`,
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
-      margin: '0px 5px',
+      margin: 0,
     },
   }));
 

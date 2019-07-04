@@ -48,7 +48,8 @@ export default function TapCategory(props) {
       [
         'Old Grape',
         'Pulled Sun',
-        'Frost Wing'
+        'Frost Wing',
+        'Old Crazy'
       ],
       7, 13, 25)
   ]
