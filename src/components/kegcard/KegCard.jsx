@@ -45,10 +45,10 @@ export default function KegCard(props) {
   return (
     <div className={classes.root}>
       <div className={classes.card}>
-        <BannerTitle
-          name='Beer Name'
-        />
-        <KegDisplay/>
+        <BannerTitle name={props.keg.name}/>
+        <KegDisplay
+          quantity={props.keg.quantity}
+          color={props.keg.color}/>
       </div>
     </div>
   );
