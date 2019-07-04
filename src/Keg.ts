@@ -1,15 +1,15 @@
 export default class Keg {
     constructor(
         public name: string, 
-        public type: string, 
+        public style: string, 
         public quantity: number,
         public color: colorCode,
         public APV: number,
         public IBU: number,
-        public Hops: Array<string>,
-        public Price16: number,
-        public Price32: number,
-        public Price64: number,        
+        public hops: Array<string>,
+        public price16: number,
+        public price32: number,
+        public price64: number,        
         ) {}
 }
 

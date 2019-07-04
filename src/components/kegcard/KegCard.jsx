@@ -34,6 +34,25 @@ const useStyles = makeStyles(theme => ({
     fontFamily: `'Quintessential', cursive`,
     fontSize: '21px',
   },
+  quantity: {    
+    textAlign: "center",
+    margin: '-30px 0 5px',
+    fontFamily: `'Quintessential', cursive`,
+    fontSize: '21px',
+  },
+  kegDetails: {
+    textAlign: "left",
+    margin: '0px',
+    fontFamily: `'Risque', cursive`,
+    fontSize: '18px',
+  },
+  hopDetails: {
+    textAlign: "left",
+    margin: '0px',
+    fontFamily: `'Risque', cursive`,
+    fontSize: '14px',
+  },
+  
 }));
 // font-family: 'Quintessential', cursive;
 // font-family: 'Risque', cursive;
@@ -46,9 +65,18 @@ export default function KegCard(props) {
     <div className={classes.root}>
       <div className={classes.card}>
         <BannerTitle name={props.keg.name}/>
+        <h3 className={classes.quantity}>{props.keg.quantity} / 124</h3>
         <KegDisplay
           quantity={props.keg.quantity}
           color={props.keg.color}/>
+        <h4 className={classes.kegDetails}>Style: {props.keg.style}</h4>
+        <h4 className={classes.kegDetails}>APV: {props.keg.APV}</h4>
+        <h4 className={classes.kegDetails}>IBU: {props.keg.IBU}</h4>
+        <h4 className={classes.kegDetails}>Hops</h4>
+        {props.keg.hops.map((hop, index) => {
+          if (hop.length > 12) { hop = hop.slice(0, 12) + '..' }
+          return (<h4 className={classes.hopDetails} key={index}>- {hop}</h4>)
+        })}        
       </div>
     </div>
   );
