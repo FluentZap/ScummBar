@@ -5,7 +5,6 @@ import TapCategory from './components/tapcategory/TapCategory';
 import { makeStyles } from '@material-ui/core/styles';
 import woodBackground from './assets/woodBackground.jpg'
 
-
 // font-family: 'Quintessential', cursive;
 // font-family: 'Risque', cursive;
 
