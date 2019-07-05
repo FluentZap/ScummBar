@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Keg from '../../assets/keg.png'
 import KegMask from '../../assets/kegMask2.png'
-import { colorCode } from '../../App';
 
 export default function KegDisplay(props) {
   const percentage = 100 - ((props.quantity / 124) * 100);

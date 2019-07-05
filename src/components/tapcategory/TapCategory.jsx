@@ -14,6 +14,13 @@ const useStyles = makeStyles(theme => ({
     margin: '30px auto',
     boxShadow: '4px 4px 10px black',
     display: 'flex',
+    flexDirection: 'row',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      height: '1200px',
+      width: '320px',
+      padding: '30px'
+    }
   },
   cardContainer: {
     margin: 'auto'

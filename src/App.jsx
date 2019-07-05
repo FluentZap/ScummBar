@@ -13,7 +13,9 @@ const useStyles = makeStyles(theme => ({
   App: {
     backgroundImage: `url('${woodBackground}')`,
     width: '100vw',
-    height: '100vh',
+    // height: '100vh',
+    minHeight: 'calc(100vh - 0px)',
+    overflowX: 'hidden',
     backgroundPositionX: 'center',
     backgroundRepeatY: 'no-repeat',
     backgroundSize: 'cover',
