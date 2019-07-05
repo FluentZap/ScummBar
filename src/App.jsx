@@ -12,8 +12,7 @@ import { ThemeProvider } from '@material-ui/styles';
 const useStyles = makeStyles(theme => ({
   App: {
     backgroundImage: `url('${woodBackground}')`,
-    width: '100vw',
-    // height: '100vh',
+    width: '100vw',    
     minHeight: 'calc(100vh - 0px)',
     overflowX: 'hidden',
     backgroundPositionX: 'center',

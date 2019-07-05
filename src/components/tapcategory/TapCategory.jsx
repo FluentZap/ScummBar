@@ -18,8 +18,8 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       height: '1200px',
-      width: '320px',
-      padding: '30px'
+      width: '300px',
+      padding: '10px'
     }
   },
   cardContainer: {
