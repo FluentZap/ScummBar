@@ -16,8 +16,8 @@ const useStyles = makeStyles(theme => ({
     minHeight: 'calc(100vh - 0px)',
     overflowX: 'hidden',
     backgroundPositionX: 'center',
-    backgroundRepeatY: 'no-repeat',
-    backgroundSize: 'cover',
+    // backgroundRepeatY: 'no-repeat',
+    // backgroundSize: 'cover',
   }
 }));
 
