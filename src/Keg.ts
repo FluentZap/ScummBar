@@ -1,16 +1,16 @@
 export default class Keg {
     constructor(
-        public name: string, 
-        public style: string, 
-        public quantity: number,
-        public color: colorCode,
-        public APV: number,
-        public IBU: number,
-        public hops: Array<string>,
-        public price16: number,
-        public price32: number,
-        public price64: number,        
-        ) {}
+        public name: string = 'new keg', 
+        public style: string = 'style', 
+        public quantity: number = 124,
+        public color: colorCode = new colorCode(100, 100, 100, 1),
+        public APV: number = 5.0,
+        public IBU: number = 80,
+        public hops: Array<string> = ['GreenSkin'],
+        public price16: number = 2.50,
+        public price32: number = 5.00,
+        public price64: number = 10.00,
+        ) {}        
 }
 
 export class colorCode {
