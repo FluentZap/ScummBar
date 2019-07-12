@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles, styled } from '@material-ui/core/styles';
+import { sizing } from '@material-ui/system';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -22,7 +23,8 @@ const useStyles = makeStyles(theme => ({
 
 
 const MyNav = styled(AppBar)({
-  backgroundColor: '#8D6E63'
+  backgroundColor: '#e8d2ca7a', 
+  marginTop: 8
 });
 
 
