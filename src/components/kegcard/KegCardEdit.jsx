@@ -66,14 +66,20 @@ const useStyles = makeStyles(theme => ({
     margin: '0px',
     fontFamily: `'Risque', cursive`,
     fontSize: '18px',
-    width: '60px',
-    textAlign: 'center'
+    fontWeight: "bold",
+    textAlign: 'center',    
+    width: '60px',    
+    '& input': {
+      padding: 0,
+      textAlign: 'center'
+    }
   },
   kegEditFields: {
     textAlign: "center",
     margin: '0px',
     fontFamily: `'Risque', cursive`,
     fontSize: '18px',
+    fontWeight: "bold",
     height: '24px',
     width: '95%',
     marginRight: 'auto',
@@ -85,10 +91,25 @@ const useStyles = makeStyles(theme => ({
   kegEditQuantity: {
     textAlign: "center",
     margin: '0px',
+    fontFamily: `'Quintessential', cursive`,
+    fontSize: '18px',
+    height: '26px',
+    width: '80px',
+    marginRight: 'auto',
+    fontWeight: "bold",
+    '& input': {
+      padding: 0,
+      textAlign: 'center'
+    }
+  },
+  kegEditPrice: {
+    textAlign: "center",
+    margin: '0px',
     fontFamily: `'Risque', cursive`,
     fontSize: '18px',
+    fontWeight: "bold",
     height: '24px',
-    width: '80px',
+    width: '40px',
     marginRight: 'auto',
     '& input': {
       padding: 0,
@@ -138,10 +159,6 @@ export default function KegCardEdit(props) {
         <FilledInput defaultValue={props.keg.IBU} className={classes.kegEditFields} margin="none" variant="filled" />        
         <h4 className={classes.kegDetails}>Hops</h4>
 
-        {/* <h4 className={classes.kegDetails}>Style: {props.keg.style}</h4>
-        <h4 className={classes.kegDetails}>APV: {props.keg.APV}</h4>
-        <h4 className={classes.kegDetails}>IBU: {props.keg.IBU}</h4>
-        <h4 className={classes.kegDetails}>Hops</h4> */}        
         <FilledInput defaultValue={props.keg.hops.length > 0 ? props.keg.hops[0] : ''} className={classes.kegEditFields} margin="none" variant="filled" />
         <FilledInput defaultValue={props.keg.hops.length > 1 ? props.keg.hops[1] : ''} className={classes.kegEditFields} margin="none" variant="filled" />
         <FilledInput defaultValue={props.keg.hops.length > 2 ? props.keg.hops[2] : ''} className={classes.kegEditFields} margin="none" variant="filled" />
@@ -152,9 +169,9 @@ export default function KegCardEdit(props) {
           <h4 className={classes.prices}>64 oz</h4>
         </div>
         <div className={classes.priceHeading}>
-          <h4 className={classes.prices}>${props.keg.price16}</h4>
-          <h4 className={classes.prices}>${props.keg.price32}</h4>
-          <h4 className={classes.prices}>${props.keg.price64}</h4>
+          <FilledInput defaultValue={props.keg.price16} className={classes.prices} margin="none" variant="filled" />
+          <FilledInput defaultValue={props.keg.price32} className={classes.prices} margin="none" variant="filled" />
+          <FilledInput defaultValue={props.keg.price64} className={classes.prices} margin="none" variant="filled" />          
         </div>
       </div>
     </div>

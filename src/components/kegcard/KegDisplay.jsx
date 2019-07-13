@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     gridRow: '3 / span 7',
     maskImage: `url('${KegMask}')`,
     maskSize: 'contain',
-    maskRepeat: 'no-repeat',    
+    maskRepeat: 'no-repeat',
     backgroundSize: 'contain!important',
     backgroundRepeat: 'no-repeat!important',
     margin: 0,
