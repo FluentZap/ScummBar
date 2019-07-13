@@ -7,8 +7,6 @@ import { SketchPicker } from 'react-color';
 import FilledInput from '@material-ui/core/FilledInput';
 import { colorCode } from '../../Keg';
 
-
-
 const useStyles = makeStyles(theme => ({
   root: {
     width: '230px',
@@ -150,13 +148,6 @@ export default function KegCardEdit(props) {
           <div className={classes.quantity}>
             <FilledInput defaultValue={props.keg.quantity} className={classes.kegEditQuantity} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, quantity: event.target.value })} />
           </div>
-          {/* <ColorPicker
-          name='color'
-          defaultValue='#000'
-          // value={this.state.color} - for controlled component
-          onChange={color => console.log(color)}
-          // onChange={color => props.setUpdatedKeg({ ...props.keg, color: hexAToRGBA(color) })}
-        /> */}
           <KegDisplay
             quantity={props.keg.quantity}
             color={props.keg.color}
