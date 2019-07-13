@@ -1,4 +1,7 @@
+import { v4 } from 'uuid';
+
 export default class Keg {
+    id: string = v4();
     constructor(
         public name: string = 'new keg', 
         public style: string = 'style', 
@@ -10,7 +13,7 @@ export default class Keg {
         public price16: number = 2.50,
         public price32: number = 5.00,
         public price64: number = 10.00,
-        ) {}        
+    ) {}
 }
 
 export class colorCode {
