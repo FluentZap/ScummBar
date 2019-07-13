@@ -9,6 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import KegCard from '../kegcard/KegCard';
 import dataServe from '../../dataServe';
 import Keg from '../../Keg';
+import KegCardEdit from '../kegcard/KegCardEdit';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,7 +36,7 @@ const SellButton = styled(Button)({
   fontSize: '18px'
 });
 
-const MyMenuItem = styled(MenuItem)({  
+const MyMenuItem = styled(MenuItem)({
   fontFamily: `'Risque', cursive`,
   fontSize: '18px'
 });
@@ -49,7 +50,7 @@ export default function TapCategory(props) {
   const sellPint = (index) => {
     let newKegs = [...kegs];
     newKegs[index].quantity--;
-    setKegs(newKegs)    
+    setKegs(newKegs)
   }
 
   const addKeg = () => {
@@ -58,29 +59,30 @@ export default function TapCategory(props) {
   }
 
   const removeKeg = (index) => {
-    let newKegs = [...kegs];    
-    newKegs.splice(index, 1);    
-    setKegs(newKegs)        
+    let newKegs = [...kegs];
+    newKegs.splice(index, 1);
+    setKegs(newKegs)
   }
 
   function openKegMenu(index) {
-    console.log(index);    
+    console.log(index);
   }
 
-  const [kegEdit, setKegEdit] = useState(null);
+  const [kegEdit, setKegEdit] = useState(0);
 
   return (
     <div className={classes.root}>
       <SellButton variant="contained" size="large" color="primary" onClick={addKeg}>Add Keg</SellButton>
-      {kegs.map((element, index) => {                        
-        return (
-          <div key={element.id} className={classes.cardContainer}>
-            <KegCard keg={element}/>
-            <KegEditIcon style={{ margin: '-326px 0px 302px 9px' }} onClick={() => openKegMenu(index)} />
-            <SellButton variant="contained" size="large" color="primary" onClick={() => sellPint(index)}>Sell 16 oz</SellButton>
-          </div>
-        )
-      })}
+      {kegs.map((element, index) => {        
+          return (
+            <div key={element.id} className={classes.cardContainer}>
+              {index === kegEdit ? <KegCardEdit keg={element} /> : <KegCard keg={element} />}
+              <KegEditIcon style={{ margin: '-326px 0px 302px 9px' }} onClick={() => setKegEdit(index)} />
+              <SellButton variant="contained" size="large" color="primary" onClick={() => sellPint(index)}>Sell 16 oz</SellButton>
+            </div>
+          )        
+      }
+      )}
     </div>
   );
 }
