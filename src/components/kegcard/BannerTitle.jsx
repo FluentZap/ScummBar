@@ -47,8 +47,9 @@ export default function BannerTitle(props) {
     <div className={classes.root}>
       <img src={BannerScroll} alt="Banner Scroll" />
       { props.kegEdit === true ?
-        <FilledInput defaultValue={props.name} className={classes.kegTitleEdit} margin="none" variant="filled" /> :
-        <h5 className={classes.beerName}>{props.name}</h5>
+        <FilledInput defaultValue={props.keg.name} className={classes.kegTitleEdit} margin="none" variant="filled"
+        onChange={(event) => props.setUpdatedKeg({ ...props.keg, name: event.target.value })} /> :
+        <h5 className={classes.beerName}>{props.keg.name}</h5>
       }      
       
     </div>

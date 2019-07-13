@@ -75,7 +75,7 @@ export default function KegCard(props) {
   return (
     <div className={classes.root}>
       <div className={classes.card}>
-        <BannerTitle name={props.keg.name} />
+        <BannerTitle keg={props.keg} />
         <h3 className={classes.quantity}>{props.keg.quantity} / 124</h3>
         <KegDisplay
           quantity={props.keg.quantity}

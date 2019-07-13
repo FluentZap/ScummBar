@@ -130,7 +130,7 @@ export default function KegCardEdit(props) {
     <div className={classes.root}>
       <div className={classes.card}>
 
-        <BannerTitle name={props.keg.name} kegEdit={true} setUpdatedKeg={props.setUpdatedKeg}/>
+        <BannerTitle keg={props.keg} kegEdit={true} setUpdatedKeg={props.setUpdatedKeg}/>
         <div className={classes.quantity}>
           <FilledInput defaultValue={props.keg.quantity} className={classes.kegEditQuantity} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, quantity: event.target.value})} />
         </div>        
