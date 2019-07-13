@@ -1,5 +1,5 @@
 
-# Taptopia
+# ScummBar
 *Welcome the the taphouse, tavern keg management system*
 
 > Live Site https://scummbar-5aaf8.firebaseapp.com/
