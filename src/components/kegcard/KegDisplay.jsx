@@ -17,9 +17,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function KegDisplay(props) {
-  const percentage = 100 - ((props.quantity / 124) * 100);
-  const color = props.color;
-  
+  const percentage = 98 - ((props.quantity / 124) * 98);
+  const color = props.color;  
   const style = {background: `url('${Keg}'), linear-gradient(180deg, #00000000, #00000000 ${percentage - 2}%, rgba(${color.r},${color.g},${color.b},${color.a}) ${percentage}%, rgba(${color.r / 5},${color.g / 5},${color.b / 5},${color.a}) 100%)`}
 
 

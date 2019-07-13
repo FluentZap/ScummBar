@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BannerTitle from './BannerTitle';
 import KegDisplay from './KegDisplay';
 
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
 import FilledInput from '@material-ui/core/FilledInput';
 
 
@@ -122,46 +119,34 @@ const useStyles = makeStyles(theme => ({
 
 
 export default function KegCardEdit(props) {
-  const classes = useStyles();
-
-  // const [labelWidth, setLabelWidth] = React.useState(0);
-  // const [name, setName] = React.useState('Composed TextField');
-  // const labelRef = React.useRef(null);
-  
-
-  // React.useEffect(() => {
-  //   setLabelWidth(labelRef.current.offsetWidth);
-  // }, []);
-
-  // function handleChange(event) {
-  //   setName(event.target.value);
-  // }
-
-
-  if (props.keg.hops.length > 3) {
-    props.keg.hops = props.keg.hops.slice(0, 3);
+  const classes = useStyles();  
+  function setHops(i, value) {
+    let newArr = [...props.keg.hops];
+    newArr[i] = value;
+    return newArr;
   }
-  console.log(props.keg.hops)
+
   return (
     <div className={classes.root}>
       <div className={classes.card}>
 
-        <BannerTitle name={props.keg.name} />      
+        <BannerTitle name={props.keg.name} kegEdit={true} setUpdatedKeg={props.setUpdatedKeg}/>
         <div className={classes.quantity}>
-          <FilledInput defaultValue={props.keg.quantity} className={classes.kegEditQuantity} margin="none" variant="filled" />
+          <FilledInput defaultValue={props.keg.quantity} className={classes.kegEditQuantity} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, quantity: event.target.value})} />
         </div>        
         <KegDisplay
           quantity={props.keg.quantity}
-          color={props.keg.color} />
-        <FilledInput defaultValue={props.keg.style} className={classes.kegEditFields} margin="none" variant="filled" />
+          color={props.keg.color}          
+          />
+        <FilledInput defaultValue={props.keg.style} className={classes.kegEditFields} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, style: event.target.value })}/>
         
-        <FilledInput defaultValue={props.keg.APV} className={classes.kegEditFields} margin="none" variant="filled" />
-        <FilledInput defaultValue={props.keg.IBU} className={classes.kegEditFields} margin="none" variant="filled" />        
+        <FilledInput defaultValue={props.keg.APV} className={classes.kegEditFields} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, APV: event.target.value })}/>
+        <FilledInput defaultValue={props.keg.IBU} className={classes.kegEditFields} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, IBU: event.target.value })}/>        
         <h4 className={classes.kegDetails}>Hops</h4>
 
-        <FilledInput defaultValue={props.keg.hops.length > 0 ? props.keg.hops[0] : ''} className={classes.kegEditFields} margin="none" variant="filled" />
-        <FilledInput defaultValue={props.keg.hops.length > 1 ? props.keg.hops[1] : ''} className={classes.kegEditFields} margin="none" variant="filled" />
-        <FilledInput defaultValue={props.keg.hops.length > 2 ? props.keg.hops[2] : ''} className={classes.kegEditFields} margin="none" variant="filled" />
+        <FilledInput defaultValue={props.keg.hops[0]} className={classes.kegEditFields} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, hops: setHops(0, event.target.value) })} />
+        <FilledInput defaultValue={props.keg.hops[1]} className={classes.kegEditFields} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, hops: setHops(1, event.target.value) })} />
+        <FilledInput defaultValue={props.keg.hops[2]} className={classes.kegEditFields} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, hops: setHops(2, event.target.value) })} />
         
         <div className={classes.priceHeading}>
           <h4 className={classes.prices}>16 oz</h4>
@@ -169,9 +154,9 @@ export default function KegCardEdit(props) {
           <h4 className={classes.prices}>64 oz</h4>
         </div>
         <div className={classes.priceHeading}>
-          <FilledInput defaultValue={props.keg.price16} className={classes.prices} margin="none" variant="filled" />
-          <FilledInput defaultValue={props.keg.price32} className={classes.prices} margin="none" variant="filled" />
-          <FilledInput defaultValue={props.keg.price64} className={classes.prices} margin="none" variant="filled" />          
+          <FilledInput defaultValue={props.keg.price16} className={classes.prices} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, price16: event.target.value })}/>
+          <FilledInput defaultValue={props.keg.price32} className={classes.prices} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, price32: event.target.value})}/>
+          <FilledInput defaultValue={props.keg.price64} className={classes.prices} margin="none" variant="filled" onChange={(event) => props.setUpdatedKeg({ ...props.keg, price64: event.target.value })}/>          
         </div>
       </div>
     </div>

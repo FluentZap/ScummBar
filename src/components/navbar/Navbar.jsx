@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles, styled } from '@material-ui/core/styles';
-import { sizing } from '@material-ui/system';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -29,9 +28,7 @@ const MyNav = styled(AppBar)({
 
 
 export default function Navbar(props) {
-  const classes = useStyles();
-
-  console.log(props.location);
+  const classes = useStyles();  
   
   return (
     <div className={classes.root}>

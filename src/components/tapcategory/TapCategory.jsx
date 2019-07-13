@@ -5,8 +5,6 @@ import KegEditIcon from '@material-ui/icons/MoreHoriz'
 import DoneIcon from '@material-ui/icons/Done'
 import ClearIcon from '@material-ui/icons/Clear'
 
-import MenuItem from '@material-ui/core/MenuItem';
-
 import KegCard from '../kegcard/KegCard';
 import dataServe from '../../dataServe';
 import Keg from '../../Keg';
@@ -43,11 +41,6 @@ const SellButton = styled(Button)({
   fontSize: '18px'
 });
 
-const MyMenuItem = styled(MenuItem)({
-  fontFamily: `'Risque', cursive`,
-  fontSize: '18px'
-});
-
 
 export default function TapCategory(props) {
   const classes = useStyles();
@@ -64,7 +57,7 @@ export default function TapCategory(props) {
     let newKegs = [...kegs, new Keg()];
     setKegs(newKegs)
   }
-
+  
   const removeKeg = (index) => {
     let newKegs = [...kegs];
     newKegs.splice(index, 1);
@@ -73,10 +66,20 @@ export default function TapCategory(props) {
   }  
 
   function finishKegEdit() {
-    setKegEdit(null);
+    let newKegs = [...kegs];
+    newKegs[kegEdit] = updatedKeg;
+    setKegs(newKegs)
+    setKegEdit(null)
   }
 
-  const [kegEdit, setKegEdit] = useState(0);
+  function editKeg(index) {
+    setUpdatedKeg({...kegs[index]})
+    setKegEdit(index)
+  }
+
+  const [kegEdit, setKegEdit] = useState(null);
+  const [updatedKeg, setUpdatedKeg] = useState(null)
+
     return (
       <div className={classes.root}>
         <SellButton variant="contained" size="large" color="primary" onClick={addKeg}>Add Keg</SellButton>
@@ -85,17 +88,17 @@ export default function TapCategory(props) {
             <div key={element.id} className={classes.cardContainer}>
               {index === kegEdit ?
                 <>
-                  <KegCardEdit keg={element} />
+                  <KegCardEdit keg={updatedKeg} setUpdatedKeg={setUpdatedKeg} />
                   <DoneIcon className={classes.editIcon} onClick={() => finishKegEdit()} />
                   <ClearIcon className={classes.clearIcon} onClick={() => removeKeg(index)} />
                 </>
                 :
                 <>
                   <KegCard keg={element} />
-                  <KegEditIcon className={classes.editIcon} onClick={() => setKegEdit(index)} />
+                  <KegEditIcon className={classes.editIcon} onClick={() => editKeg(index)} />
                 </>
               }
-              <SellButton variant="contained" size="large" color="primary" onClick={() => sellPint(index)}>Sell 16 oz</SellButton>
+              <SellButton disabled={element.quantity === 0} variant="contained" size="large" color="primary" onClick={() => sellPint(index)}>Sell 16 oz</SellButton>
             </div>
           )
         }
